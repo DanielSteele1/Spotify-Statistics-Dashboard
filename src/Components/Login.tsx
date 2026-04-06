@@ -4,15 +4,17 @@ import { BsArrowRight } from 'react-icons/bs';
 import { Button } from '@mantine/core';
 
 
-interface loginProps{
+interface loginProps {
 
     clientId: string;
     redirectUri: string;
 }
 
-function Login({clientId, redirectUri}:loginProps) {
+function Login({ clientId, redirectUri }: loginProps) {
 
     async function Authentication() {
+
+        // generate a random string of text
 
         const generateRandomString = (length: number) => {
             const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -20,6 +22,7 @@ function Login({clientId, redirectUri}:loginProps) {
             return values.reduce((acc, x) => acc + possible[x % possible.length], "");
         }
 
+        // save into codeVerifier
         const codeVerifier = generateRandomString(64);
 
         const sha256 = async (plain: any) => {
@@ -36,14 +39,15 @@ function Login({clientId, redirectUri}:loginProps) {
         }
 
         const hashed = await sha256(codeVerifier)
+        // hash the codeVerifier and create a codeChallenge
         const codeChallenge = base64encode(hashed);
 
-        // get request to the authorization endpoint
+        // save to localStorage
+        localStorage.setItem('code_verifier', codeVerifier);
 
+        // get request to the authorization endpoint
         const scope = 'user-read-private user-read-email user-library-read user-read-recently-played user-top-read user-follow-read user-read-playback-position playlist-read-private user-read-currently-playing';
         const authUrl = new URL("https://accounts.spotify.com/authorize")
-
-        localStorage.setItem('code_verifier', codeVerifier);
 
         const params = {
             response_type: 'code',

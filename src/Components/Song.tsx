@@ -2,6 +2,9 @@
 import { type JSX } from "react";
 
 interface SongProps {
+
+    isLoggedIn: boolean;
+
     key: number;
     played_at: string;
     name: string;
@@ -13,9 +16,7 @@ function Song({ name, played_at, image, artists }: SongProps): JSX.Element {
 
     return (
         <section className="song">
-
             <span className="song_info">
-
                 {<span className="song-picture"> <img src={image} /> </span>}
 
                 <span id="info-bar">

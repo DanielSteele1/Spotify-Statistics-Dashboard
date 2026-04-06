@@ -76,6 +76,8 @@ function Navigation({ handleThemeButton, isLightOn }: NavigationProps) {
 
                     <div className={`navbar-mobile ${NavOpen ? 'visible' : ''}`}>
 
+                        <div className="navbar-mobile-container">
+
                             <button className="accounts-button">
                                 <a href="/signup">
                                     <IoPersonCircle style={{ display: 'flex', alignContent: 'center' }} />
@@ -99,6 +101,7 @@ function Navigation({ handleThemeButton, isLightOn }: NavigationProps) {
                                 </a>
                             </button>
                         </div>
+                    </div>
                 </div>
             </div>
         </div>

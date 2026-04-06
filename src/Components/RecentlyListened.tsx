@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Song from './Song.tsx';
 
 //import { randomId } from '@mantine/hooks';
-import { Pagination } from '@mantine/core';
+import { Pagination, Skeleton } from '@mantine/core';
 
 interface ImageObject {
     height: number;
@@ -22,7 +22,6 @@ interface Track {
     name: string;
     album: Album;
     artists: ArtistsArray[];
-
 }
 
 interface Item {
@@ -33,12 +32,17 @@ interface Item {
 interface RecentlyListenedProps {
     RecentlyListenedData: {
         items: Item[];
-    };
+    } | null;
+
+    isLoggedin: boolean;
 }
-function RecentlyListened({ RecentlyListenedData }: RecentlyListenedProps) {
+
+function RecentlyListened({ RecentlyListenedData, isLoggedin }: RecentlyListenedProps) {
 
     const [activePage, setActivePage] = useState(1);
-    
+
+    const skeletonCount = 3;
+
     function formatDate(inputDate: string) {
 
         const date = new Date(inputDate);
@@ -48,12 +52,10 @@ function RecentlyListened({ RecentlyListenedData }: RecentlyListenedProps) {
             hour: "2-digit",
             day: "numeric",
             month: "long",
-            weekday:"long",
-            year:"numeric"
+            weekday: "long",
+            year: "numeric"
         });
     }
-
-    //finish chunking the array results tomorrow...
 
     // function chunk<T>(array: T[], size: number): T[][] {
 
@@ -79,17 +81,26 @@ function RecentlyListened({ RecentlyListenedData }: RecentlyListenedProps) {
 
             <div className="recent-grid">
 
-                {RecentlyListenedData?.items?.map((items, key) => (
+                {RecentlyListenedData?.items
+                    ? RecentlyListenedData?.items?.map((items, key) => (
 
-                    <Song
-                        key={key}
-                        played_at={formatDate(items.played_at)}
-                        name={items.track.name}
-                        image={items.track.album.images[0]?.url}
-                        artists={items.track.artists[0].name}
+                        <Song
+                            key={key}
+                            played_at={formatDate(items.played_at)}
+                            name={items.track.name}
+                            image={items.track.album.images[0]?.url}
+                            artists={items.track.artists[0].name}
+                            isLoggedIn={isLoggedin}
+                        />
+                    ))
+                    :
 
-                    />
-                ))}
+                    Array.from({ length: skeletonCount }).map((_, index) => (
+                        <div key={index} className="recently-listened-skeleton">
+                            <Skeleton id="skeleton-song" animate={false} width="5%" height={50} mr={20}  />
+                            <Skeleton id="skeleton-song" animate={false} width="100%" height={50}  />
+                        </div>
+                    ))}
             </div>
 
             <div className="pagination">

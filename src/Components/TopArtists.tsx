@@ -5,16 +5,15 @@ interface MostStreamedArtistsProps {
     MostStreamedArtists: {
 
         href?: string;
-        items: ItemsArray[];
+        items?: ItemsArray[];
 
-    }
+    } | null;
 }
 
 interface ItemsArray {
 
     genres: string;
-    images: imagesArray[] ;
-
+    images: imagesArray[];
 }
 
 interface imagesArray {
@@ -32,15 +31,16 @@ function Artists({ MostStreamedArtists }: MostStreamedArtistsProps) {
         { artist: 'Artist 3', Songs: 6 },
         { artist: 'Artist 4', Songs: 3 },
         { artist: 'Artist 4', Songs: 3 },
+    ];
 
-    ]
+    // Only render image if data exists
+    const artistImage = MostStreamedArtists?.items?.[0]?.images?.[0]?.url;
 
     return (
-        <section className="Communities-widget">
+        <section className="top-artists-widget">
             <span id="component-heading"> 🧑‍🎨 Top five Artists </span>
 
-
-            <img src={MostStreamedArtists?.items[0]?.images[0]?.url}> </img>
+            {artistImage && <img src={artistImage} alt="Artist" />}
 
             <BarChart
                 h={200}
@@ -52,7 +52,7 @@ function Artists({ MostStreamedArtists }: MostStreamedArtistsProps) {
                 series={[{ name: 'Songs', color: 'green.7' }]}
             />
         </section>
-    )
+    );
 }
 
 export default Artists;

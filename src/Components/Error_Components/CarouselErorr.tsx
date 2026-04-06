@@ -1,15 +1,32 @@
 
 
 
-
 function CarouselError() {
 
     return (
-        <section className="CarouselError">
-            <span > Please Sign up to view this component </span>
+        <section className="CarouselSkeleton">
+            <div className="carousel-skeleton-square">
+
+            </div>
+            <div className="carousel-skeleton-square">
+
+            </div>
+            <div className="carousel-skeleton-square">
+
+            </div>
+            <div className="carousel-skeleton-square">
+
+            </div>
+            <div className="carousel-skeleton-square">
+
+            </div>
+
+            <div className="carousel-skeleton-square">
+
+            </div>
+            
         </section>
     )
 }
-
 
 export default CarouselError;

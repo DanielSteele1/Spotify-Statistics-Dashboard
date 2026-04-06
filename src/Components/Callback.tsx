@@ -26,6 +26,7 @@ function Callback({ clientId, redirectUri }: CallbackProps) {
             //get code verifier from localStorage
 
             const codeVerifier = localStorage.getItem("code_verifier");
+            
             if (!codeVerifier) {
                 console.error("Missing code_verifier");
                 window.location.href = "/login";

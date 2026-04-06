@@ -1,4 +1,5 @@
 
+import { Skeleton } from "@mantine/core";
 import { CopyIcon } from "@radix-ui/react-icons";
 import { IoAlertOutline, IoPersonCircle, IoSparkles } from "react-icons/io5";
 import Toastify from "toastify-js";
@@ -10,7 +11,7 @@ interface ProfileProps {
         followers: { href: string; total: number };
         external_urls: { spotify: string };
         product: string;
-    };
+    } | null;
 }
 
 interface Image {
@@ -21,17 +22,19 @@ interface Image {
 
 function CopyLink({ ProfileData }: ProfileProps) {
 
-    navigator.clipboard.writeText(ProfileData.external_urls.spotify);
+    if (ProfileData?.external_urls?.spotify) {
+        navigator.clipboard.writeText(ProfileData.external_urls.spotify);
 
-    Toastify({
-        className: "Toast",
-        text: "link copied to clipboard",
-        duration: 3000,
-        newWindow: false,
-        gravity: "bottom",
-        position: "right"
+        Toastify({
+            className: "Toast",
+            text: "link copied to clipboard",
+            duration: 3000,
+            newWindow: false,
+            gravity: "bottom",
+            position: "right"
 
-    }).showToast();
+        }).showToast();
+    }
 }
 
 function Profile({ ProfileData }: ProfileProps) {
@@ -51,7 +54,9 @@ function Profile({ ProfileData }: ProfileProps) {
                     <div className="profile-img-mobile">
                         {profileImageUrl ?
                             <img src={profileImageUrl} alt="profile" width="200" height="200" /> :
-                            <IoPersonCircle />
+                            <div className="img-skeleton-mobile">
+                                <Skeleton animate={true} height={200} circle mb={"xl"} />
+                            </div>
                         }
                     </div>
 
@@ -89,8 +94,11 @@ function Profile({ ProfileData }: ProfileProps) {
 
                 <div className="profile-img">
                     {profileImageUrl ?
-                        <img src={profileImageUrl} alt="profile" width="200" height="200" /> :
-                        <IoPersonCircle />
+                        <img src={profileImageUrl} alt="profile" width="200" height="200" /> 
+                        : <div className="personIcon"> 
+                         <IoPersonCircle  style={{fontSize: '30px'}}/>
+                        </div>
+
                     }
                 </div>
             </div>

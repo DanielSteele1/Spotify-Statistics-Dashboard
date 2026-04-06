@@ -28,7 +28,7 @@ interface TopSongsProps {
     MostStreamedSongs: {
         href?: string;
         items: Song[];
-    };
+    } | null;
 }
 
 function TopSongs({ MostStreamedSongs }: TopSongsProps) {
