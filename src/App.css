@@ -37,6 +37,8 @@ body {
   --background-secondary: #141414;
   --text-color: whitesmoke;
   --main-highlight: #1DB954;
+  --stats-highlight: #141414;
+  --stats-text: whitesmoke;
 }
 
 [data-mantine-color-scheme="light"] {
@@ -44,6 +46,8 @@ body {
   --background-secondary: #fcf5ef;
   --text-color: #111;
   --main-highlight: #1DB954;
+  --stats-highlight: #1db948;
+  --stats-text: #111;
 }
 
 .Toast {
@@ -491,8 +495,8 @@ body {
   flex-direction: row;
   width: fit-content;
   font-size: 1.0rem;
-  color: var(--text-color);
-  background-color: var(--main-highlight);
+  background-color: var(--stats-highlight);
+  color: var(--stats-text);
   padding: 10px;
   border-radius: 10px;
   font-weight: 500;
@@ -504,7 +508,6 @@ body {
 .user-accountBadge a svg {
   font-size: 1.2rem;
   margin-right: 10px;
-  color: white;
 }
 
 .user-link a:hover {
@@ -875,6 +878,19 @@ body {
   margin: 0 auto;
   width: 100%;
 }
+
+
+.loggedin-image{
+  display: flex;
+  height: 50px;
+}
+
+.loggedin-image img {
+  height: 50px;
+  width: fit-content;
+  border-radius: 100px;
+}
+
 
 @media (min-width: 600px) {
 

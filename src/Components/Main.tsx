@@ -10,23 +10,29 @@ import { useEffect, useState } from 'react';
 import Toastify from 'toastify-js';
 import { Skeleton } from '@mantine/core';
 
-import './Skeleton.css'
+import useStore from './ZustandStore.tsx';
+
+import './Skeleton.css';
 
 function Main() {
 
     //fetch userData
     const access_token = localStorage.getItem('access_token');
 
-    const [profileData, setProfileData] = useState(null);
-    const [mostStreamedSongs, setMostStreamedSongs] = useState(null);
-    const [RecentlyListened_data, setRecentlyListened] = useState(null);
-    const [mostStreamed_Artists, setMostStreamedArtists] = useState(null);
-    const [currentSong, setCurrentSong] = useState(null);
+    const profileData = useStore((state: any) => state.profileData);
+    const setProfileData = useStore((state: any) => state.setProfileData);
 
-    // loading state, used to add skeletons when loading app.
-    const [isLoading, setLoading] = useState(true);
-    //used to check if user is loggedIn or not, will check once a user has logged in with spotify.
-    const [isLoggedin, setLoggedin] = useState(false);
+    const isLoading = useStore((state: any) => state.isLoading);
+    const setLoading = useStore((state: any) => state.setLoading);
+
+    const isLoggedin = useStore((state: any) => state.isLoggedIn);
+    const setLoggedin = useStore((state: any) => state.setLoggedIn);
+
+
+    const [mostStreamed_Artists, setMostStreamedArtists] = useState(null);
+    const [mostStreamedSongs, setMostStreamedSongs] = useState(null);
+    const [currentSong, setCurrentSong] = useState(null);
+    const [RecentlyListened_data, setRecentlyListened] = useState(null);
 
     useEffect(() => {
 
@@ -163,8 +169,7 @@ function Main() {
         <div className="Main">
 
             {isLoggedin ?
-                <div>
-
+                <div className="login-warning">
                 </div>
                 :
                 <div className="login-warning">

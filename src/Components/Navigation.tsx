@@ -7,12 +7,19 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { useState } from "react";
 import { IoPersonCircle } from "react-icons/io5";
 
+import NavigationLoggedin from './Navigation-loggedin.tsx';
+
+import useStore from "./ZustandStore";
+
 interface NavigationProps {
     handleThemeButton: React.MouseEventHandler<HTMLButtonElement>
     isLightOn?: boolean;
 }
 
 function Navigation({ handleThemeButton, isLightOn }: NavigationProps) {
+
+    const isLoggedin = useStore((state: any) => state.isLoggedIn);
+
 
     const [NavOpen, setNavOpen] = useState(false);
     const toggleNav = () => setNavOpen(o => !o);
@@ -26,16 +33,19 @@ function Navigation({ handleThemeButton, isLightOn }: NavigationProps) {
                 </div>
 
                 <div className="nav-buttons">
-                    <div className="nav-button">
-                        <Button
-                            color="green.7"
-                            className="accounts-button"
-                            component="a"
-                            href="/signup"
-                        >
-                            <span> Sign up </span>
-                        </Button>
-                    </div>
+                    {isLoggedin ? <NavigationLoggedin ProfileData={null} />
+                        :
+                        <div className="nav-button">
+                            <Button
+                                color="green.7"
+                                className="accounts-button"
+                                component="a"
+                                href="/signup"
+                            >
+                                <span> Sign up </span>
+                            </Button>
+                        </div>
+                    }
 
                     <div className="nav-button">
                         <button

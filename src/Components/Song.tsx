@@ -11,6 +11,7 @@ interface SongProps {
     image: string;
     artists: string;
 }
+
 // work out conditional rendering for each element.
 function Song({ name, played_at, image, artists }: SongProps): JSX.Element {
 
