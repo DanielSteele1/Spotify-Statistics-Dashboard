@@ -109,7 +109,7 @@ function Main() {
 
             if (isLoggedin === false) {
 
-                setLoggedin(false);
+                setLoggedin(true);
                 localStorage.setItem("isloggedin", "true");
 
                 Toastify({
