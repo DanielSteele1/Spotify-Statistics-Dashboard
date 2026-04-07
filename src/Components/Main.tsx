@@ -25,8 +25,8 @@ function Main() {
     const isLoading = useStore((state: any) => state.isLoading);
     const setLoading = useStore((state: any) => state.setLoading);
 
-    const isLoggedin = useStore((state: any) => state.isLoggedIn);
-    const setLoggedin = useStore((state: any) => state.setLoggedIn);
+    const isLoggedin = useStore((state: any) => state.isLoggedin);
+    const setLoggedin = useStore((state: any) => state.setLoggedin);
 
 
     const [mostStreamed_Artists, setMostStreamedArtists] = useState(null);
