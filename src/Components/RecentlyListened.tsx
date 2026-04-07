@@ -57,16 +57,17 @@ function RecentlyListened({ RecentlyListenedData, isLoggedin }: RecentlyListened
         });
     }
 
-    // function chunk<T>(array: T[], size: number): T[][] {
+    //chunk the array
 
-    //     if(!array.length){
-    //         return [];
-    //     }
+    function chunk<T>(array: T[], size: number): T[][] {
+        return Array.from({ length: Math.ceil(array.length / size) }, (_, i) =>
+            array.slice(i * size, i * size + size)
+        );
+    }
 
-    //     const head = array.slice(0,size);
-    //     const tail = array.slice(size);
-    //     return [head, ...chunk(tail, size)];
-    // }
+    const pageSize = 5;
+    const pages = chunk(RecentlyListenedData?.items ?? [], pageSize);
+    const currentPageSongs = pages[activePage - 1] || [];
 
     return (
 
@@ -79,33 +80,32 @@ function RecentlyListened({ RecentlyListenedData, isLoggedin }: RecentlyListened
                 </div>
             </div>
 
+
             <div className="recent-grid">
-
                 {RecentlyListenedData?.items
-                    ? RecentlyListenedData?.items?.map((items, key) => (
-
+                    ? currentPageSongs.map((item, key) => (
                         <Song
                             key={key}
-                            played_at={formatDate(items.played_at)}
-                            name={items.track.name}
-                            image={items.track.album.images[0]?.url}
-                            artists={items.track.artists[0].name}
+                            played_at={formatDate(item.played_at)}
+                            name={item.track.name}
+                            image={item.track.album.images[0]?.url}
+                            artists={item.track.artists[0].name}
                             isLoggedIn={isLoggedin}
                         />
                     ))
                     :
-
                     Array.from({ length: skeletonCount }).map((_, index) => (
                         <div key={index} className="recently-listened-skeleton">
-                            <Skeleton id="skeleton-song" animate={false} width="5%" height={50} mr={20}  />
-                            <Skeleton id="skeleton-song" animate={false} width="100%" height={50}  />
+                            <Skeleton id="skeleton-song" animate={false} width="5%" height={50} mr={20} />
+                            <Skeleton id="skeleton-song" animate={false} width="100%" height={50} />
                         </div>
                     ))}
             </div>
 
+
             <div className="pagination">
                 <Pagination
-                    total={5}
+                    total={pages.length || 1}
                     value={activePage}
                     onChange={setActivePage}
                     color="green.7"
