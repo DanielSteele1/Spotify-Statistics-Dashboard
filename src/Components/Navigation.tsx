@@ -33,9 +33,10 @@ function Navigation({ handleThemeButton, isLightOn }: NavigationProps) {
                 </div>
 
                 <div className="nav-buttons">
-                    {isLoggedin ? <NavigationLoggedin ProfileData={null} />
-                        :
-                        <div className="nav-button">
+                    {isLoggedin ?
+                        <NavigationLoggedin ProfileData={null} />
+
+                        : <div className="nav-button">
                             <Button
                                 color="green.7"
                                 className="accounts-button"
@@ -45,6 +46,7 @@ function Navigation({ handleThemeButton, isLightOn }: NavigationProps) {
                                 <span> Sign up </span>
                             </Button>
                         </div>
+                        
                     }
 
                     <div className="nav-button">

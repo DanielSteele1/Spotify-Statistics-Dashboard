@@ -190,6 +190,8 @@ body {
   flex-direction: row;
   width: fit-content;
   padding-right: 10px;
+  align-items: center;
+  justify-content: center;
 }
 
 .nav-button {
@@ -879,14 +881,17 @@ body {
   width: 100%;
 }
 
-
 .loggedin-image{
   display: flex;
-  height: 50px;
+  height: 40px;
+  width: fit-content;
+  border-radius: 100px;
+  background-color: #1db948;
+  align-items: center;
+  justify-content: center;
 }
 
 .loggedin-image img {
-  height: 50px;
   width: fit-content;
   border-radius: 100px;
 }

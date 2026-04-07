@@ -21,7 +21,7 @@ function NavigationLoggedin({}:ProfileProps) {
 
     return (
         <div className="loggedin-image">
-            <img src={ProfileImageUrl}> </img>
+            <img src={ProfileImageUrl} />
         </div>
     );
 };
