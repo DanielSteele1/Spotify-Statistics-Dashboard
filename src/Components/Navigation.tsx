@@ -34,7 +34,6 @@ function Navigation({ handleThemeButton, isLightOn }: NavigationProps) {
                 <div className="nav-buttons">
                     {isLoggedin ?
                         <NavigationLoggedin ProfileData={null} />
-
                         : 
                         <div className="nav-button">
                             <Button

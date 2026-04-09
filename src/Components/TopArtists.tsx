@@ -14,6 +14,7 @@ interface ItemsArray {
 
     genres: string;
     images: imagesArray[];
+    name: string;
 }
 
 interface imagesArray {
@@ -24,14 +25,16 @@ interface imagesArray {
 
 function Artists({ MostStreamedArtists }: MostStreamedArtistsProps) {
 
+    const TopArtists = MostStreamedArtists?.items?.map((items, index) => {
 
-    const data = [
-        { artist: '', Songs: 5 },
-        { artist: 'Artist 2', Songs: 10 },
-        { artist: 'Artist 3', Songs: 6 },
-        { artist: 'Artist 4', Songs: 3 },
-        { artist: 'Artist 4', Songs: 3 },
-    ];
+        return {
+            artist: items?.name,
+            score: 5 - index,
+        }
+    }) || [];
+
+    // const TopArtists = MostStreamedArtists?.items?.[0]?.images?.[0]?.url;
+
 
     // Only render image if data exists
     const artistImage = MostStreamedArtists?.items?.[0]?.images?.[0]?.url;
@@ -44,12 +47,12 @@ function Artists({ MostStreamedArtists }: MostStreamedArtistsProps) {
 
             <BarChart
                 h={200}
-                data={data}
+                data={TopArtists}
                 dataKey="artist"
                 orientation="vertical"
                 yAxisProps={{ width: 40 }}
                 barProps={{ radius: 4 }}
-                series={[{ name: 'Songs', color: 'green.7' }]}
+                series={[{ name: 'score', color: 'green.7' }]}
             />
         </section>
     );

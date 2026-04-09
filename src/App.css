@@ -889,7 +889,11 @@ body {
   border-radius: 100px;
   align-items: center;
   justify-content: center;
+}
+
+.loggedin-image span{
   font-size: 1.0rem;
+  color: var(--text-color);
 }
 
 .loggedin-image img {
@@ -897,8 +901,9 @@ body {
   border-radius: 100px;
   height: 40px;
   border: 2px solid var(--main-highlight);
+  margin-left: 10px;
+  margin-right: 10px;
 }
-
 
 @media (min-width: 600px) {
 
