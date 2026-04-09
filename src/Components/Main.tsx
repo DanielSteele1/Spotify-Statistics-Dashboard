@@ -46,7 +46,7 @@ function Main() {
 
         async function fetchMostStreamedArtists() {
 
-            const response = await fetch("https://api.spotify/com/v1/me/top/artists?limit=5&time_range=short_term", {
+            const response = await fetch("https://api.spotify.com/v1/me/top/artists?limit=5&time_range=short_term", {
 
                 method: "GET",
                 headers: { Authorization: `Bearer ${access_token}` },
