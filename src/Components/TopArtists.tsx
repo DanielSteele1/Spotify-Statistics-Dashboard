@@ -1,4 +1,3 @@
-import { BarChart } from '@mantine/charts';
 
 interface MostStreamedArtistsProps {
 
