@@ -35,7 +35,6 @@ function Artists({ MostStreamedArtists }: MostStreamedArtistsProps) {
 
     // const TopArtists = MostStreamedArtists?.items?.[0]?.images?.[0]?.url;
 
-
     // Only render image if data exists
     const artistImage = MostStreamedArtists?.items?.[0]?.images?.[0]?.url;
 
@@ -43,17 +42,23 @@ function Artists({ MostStreamedArtists }: MostStreamedArtistsProps) {
         <section className="top-artists-widget">
             <span id="component-heading"> 🧑‍🎨 Top five Artists </span>
 
-            {artistImage && <img src={artistImage} alt="Artist" />}
+            <div>
 
-            <BarChart
-                h={200}
-                data={TopArtists}
-                dataKey="artist"
-                orientation="vertical"
-                yAxisProps={{ width: 40 }}
-                barProps={{ radius: 4 }}
-                series={[{ name: 'score', color: 'green.7' }]}
-            />
+                <div className="artist-score">
+                    {TopArtists[0]?.score}
+                </div>
+
+                <div className="artist-image">
+                    {artistImage && <img src={artistImage} alt="Artist" />}
+                </div>
+
+                <div className="artist-info">
+
+                    <div className="artist-name">
+                        {TopArtists[0]?.artist}
+                    </div>
+                </div>
+            </div>
         </section>
     );
 }
