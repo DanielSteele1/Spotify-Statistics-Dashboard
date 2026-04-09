@@ -252,7 +252,7 @@ function Main() {
                         :
                         <div className="dashboard-component">
                             <div className="component2">
-                                {isLoggedin ? <div> <Skeleton /> </div> : <Artists MostStreamedArtists={mostStreamed_Artists} />}
+                                {isLoggedin ? <Artists MostStreamedArtists={mostStreamed_Artists} /> : <div> <Skeleton /> </div> }
                             </div>
                         </div>
                     }

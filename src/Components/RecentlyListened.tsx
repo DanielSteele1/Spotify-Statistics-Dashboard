@@ -80,7 +80,6 @@ function RecentlyListened({ RecentlyListenedData, isLoggedin }: RecentlyListened
                 </div>
             </div>
 
-
             <div className="recent-grid">
                 {RecentlyListenedData?.items
                     ? currentPageSongs.map((item, key) => (

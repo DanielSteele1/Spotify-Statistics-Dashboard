@@ -18,8 +18,7 @@ interface NavigationProps {
 
 function Navigation({ handleThemeButton, isLightOn }: NavigationProps) {
 
-    const isLoggedin = useStore((state: any) => state.isLoggedIn);
-
+    const isLoggedin = useStore((state: any) => state.isLoggedin);
 
     const [NavOpen, setNavOpen] = useState(false);
     const toggleNav = () => setNavOpen(o => !o);
@@ -36,7 +35,8 @@ function Navigation({ handleThemeButton, isLightOn }: NavigationProps) {
                     {isLoggedin ?
                         <NavigationLoggedin ProfileData={null} />
 
-                        : <div className="nav-button">
+                        : 
+                        <div className="nav-button">
                             <Button
                                 color="green.7"
                                 className="accounts-button"
