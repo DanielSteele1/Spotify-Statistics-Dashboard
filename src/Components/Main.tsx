@@ -107,30 +107,36 @@ function Main() {
 
         function LoggedIn() {
 
-            if (isLoggedin === false) {
+            const token = localStorage.getItem('access_token');
+
+            if (token) {
+
+                if (!isLoggedin) {
+
+                    Toastify({
+
+                        className: "Toast",
+                        text: "Successfully Logged in!",
+                        duration: 3000,
+                        newWindow: false,
+                        gravity: "bottom",
+                        position: "center",
+
+                    }).showToast();
+                }
 
                 setLoggedin(true);
-                localStorage.setItem("isloggedin", "true");
+                localStorage.setItem("isloggedin", 'true');
 
-                Toastify({
-
-                    className: "Toast",
-                    text: "Successfully Logged in!",
-                    duration: 3000,
-                    newWindow: false,
-                    gravity: "bottom",
-                    position: "center",
-
-                }).showToast();
             }
             else {
                 localStorage.setItem("isloggedin", "false");
+                setLoggedin(false);
             }
 
         }
 
     }, [access_token])  // run fetchProfile if access_token changes.
-
 
     useEffect(() => {
 
@@ -252,7 +258,7 @@ function Main() {
                         :
                         <div className="dashboard-component">
                             <div className="component2">
-                                {isLoggedin ? <Artists MostStreamedArtists={mostStreamed_Artists} /> : <div> <Skeleton /> </div> }
+                                {isLoggedin ? <Artists MostStreamedArtists={mostStreamed_Artists} /> : <div> <Skeleton /> </div>}
                             </div>
                         </div>
                     }

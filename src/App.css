@@ -883,17 +883,20 @@ body {
 
 .loggedin-image{
   display: flex;
+  flex-direction: row;
   height: 40px;
   width: fit-content;
   border-radius: 100px;
-  background-color: #1db948;
   align-items: center;
   justify-content: center;
+  font-size: 1.0rem;
 }
 
 .loggedin-image img {
   width: fit-content;
   border-radius: 100px;
+  height: 40px;
+  border: 2px solid var(--main-highlight);
 }
 
 
