@@ -1,7 +1,6 @@
 .top-artists-widget {
     display: flex;
     flex-direction: column;
-    padding: 10px;
     margin: 0 auto;
 }
 
@@ -10,7 +9,6 @@
     flex-direction: row;
     width: 100%;
     height: fit-content;
-
 }
 
 .artist {
@@ -18,7 +16,6 @@
     flex-direction: row;
     width: 100%;
     height: fit-content;
-    background-color: var(--background);
 }
 
 .artist-info {
@@ -51,11 +48,14 @@
     display: flex;
     height: 110px;
     width: fit-content;
-    padding: 10px;
     border-radius: 100px;
+    border: 2px solid var(--background-secondary);
 }
 
 .artist-name {
     display: flex;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
+    padding-top: 5px;
+    align-items: center;
+    justify-content: flex-start;
 }
