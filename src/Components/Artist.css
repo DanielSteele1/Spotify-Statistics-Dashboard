@@ -1,17 +1,24 @@
-
-.top-artists-widget{
-
+.top-artists-widget {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     padding: 10px;
     margin: 0 auto;
 }
 
-.artist{
+.artists {
     display: flex;
     flex-direction: row;
     width: 100%;
     height: fit-content;
+
+}
+
+.artist {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: fit-content;
+    background-color: var(--background);
 }
 
 .artist-info {
@@ -19,7 +26,7 @@
     flex-direction: column;
 }
 
-.artist-score{
+.artist-score {
     display: flex;
     height: fit-content;
     width: fit-content;
@@ -27,22 +34,22 @@
     font-size: 1.5rem;
 }
 
-.artist-image{
+.artist-image {
     display: flex;
     height: 100px;
     width: fit-content;
     padding: 10px;
 }
 
-.artist-image{
+.artist-image {
     display: flex;
     height: 100px;
     width: fit-content;
 }
 
-.artist-image img{
+.artist-image img {
     display: flex;
-    height: 100px;
+    height: 110px;
     width: fit-content;
     padding: 10px;
     border-radius: 100px;
@@ -52,6 +59,3 @@
     display: flex;
     font-size: 1.2rem;
 }
-
-
-
