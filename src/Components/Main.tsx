@@ -11,7 +11,6 @@ import Toastify from 'toastify-js';
 import { Skeleton } from '@mantine/core';
 
 import useStore from './ZustandStore.tsx';
-
 import './Skeleton.css';
 
 function Main() {
@@ -27,7 +26,6 @@ function Main() {
 
     const isLoggedin = useStore((state: any) => state.isLoggedin);
     const setLoggedin = useStore((state: any) => state.setLoggedin);
-
 
     const [mostStreamed_Artists, setMostStreamedArtists] = useState(null);
     const [mostStreamedSongs, setMostStreamedSongs] = useState(null);
@@ -203,11 +201,8 @@ function Main() {
                 }
 
                 {isLoading ?
-
                     <div className="current-song-skeleton">
-
-                        <Skeleton height={250} />
-
+                        <Skeleton height={150} />
                     </div>
                     : <CurrentSong CurrentSong={currentSong} />
                 }
@@ -257,7 +252,7 @@ function Main() {
                         :
                         <div className="dashboard-component">
                             <div className="component2">
-                                {isLoggedin ? <Artists MostStreamedArtists={mostStreamed_Artists} /> : <div> <Skeleton /> </div>}
+                             <Artists MostStreamedArtists={mostStreamed_Artists} />
                             </div>
                         </div>
                     }
