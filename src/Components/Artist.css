@@ -1,16 +1,22 @@
 
 .artist{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     width: 100%;
     height: fit-content;
 }
 
+.artist-info {
+    display: flex;
+    flex-direction: column;
+}
+
 .artist-score{
     display: flex;
-    height: 50px;
-    width: 50px;
+    height: fit-content;
+    width: fit-content;
     color: var(--text-color);
+    font-size: 1.5rem;
 }
 
 .artist-image{
@@ -31,6 +37,7 @@
     height: 100px;
     width: fit-content;
     padding: 10px;
+    border-radius: 100px;
 }
 
 .artist-name {

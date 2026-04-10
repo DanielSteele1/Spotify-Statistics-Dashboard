@@ -12,9 +12,9 @@ interface ArtistProps {
 function Artist({ index, image, name }: ArtistProps) {
 
     return (
-        <>
+        < div className="artist-info">
             <div className="artist-score">
-                {index}
+                # {index + 1}
             </div>
 
             <div className="artist-image">
@@ -27,7 +27,7 @@ function Artist({ index, image, name }: ArtistProps) {
                     {name}
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 export default Artist;
