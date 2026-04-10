@@ -1,4 +1,9 @@
 
+
+import Artist from './Artist.tsx';
+import './Artist.css';
+
+
 interface MostStreamedArtistsProps {
 
     MostStreamedArtists: {
@@ -24,40 +29,27 @@ interface imagesArray {
 
 function Artists({ MostStreamedArtists }: MostStreamedArtistsProps) {
 
-    const TopArtists = MostStreamedArtists?.items?.map((items, index) => {
-
-        return {
-            artist: items?.name,
-            score: 5 - index,
-        }
-    }) || [];
-
-    // const TopArtists = MostStreamedArtists?.items?.[0]?.images?.[0]?.url;
+    const artistItems = MostStreamedArtists?.items || [];
 
     // Only render image if data exists
-    const artistImage = MostStreamedArtists?.items?.[0]?.images?.[0]?.url;
 
     return (
         <section className="top-artists-widget">
             <span id="component-heading"> 🧑‍🎨 Top five Artists </span>
 
-            <div>
 
-                <div className="artist-score">
-                    {TopArtists[0]?.score}
+            {artistItems.map((item, index: number) => (
+                <div className="artist">
+                    <Artist
+                        key={index}
+                        index={index}
+                        image={item.images?.[0]?.url}
+                        name={item.name}
+                    />
                 </div>
+            ))}
 
-                <div className="artist-image">
-                    {artistImage && <img src={artistImage} alt="Artist" />}
-                </div>
 
-                <div className="artist-info">
-
-                    <div className="artist-name">
-                        {TopArtists[0]?.artist}
-                    </div>
-                </div>
-            </div>
         </section>
     );
 }

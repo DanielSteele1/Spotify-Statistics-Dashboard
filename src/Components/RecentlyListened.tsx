@@ -101,7 +101,6 @@ function RecentlyListened({ RecentlyListenedData, isLoggedin }: RecentlyListened
                     ))}
             </div>
 
-
             <div className="pagination">
                 <Pagination
                     total={pages.length || 1}

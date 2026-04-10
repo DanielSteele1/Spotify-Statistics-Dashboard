@@ -1,7 +1,7 @@
 import Profile from './Profile.tsx';
 import TopGenres from './TopGenres.tsx';
 import Artists from './TopArtists.tsx';
-import TopSongs from './TopSongs.tsx'
+import TopSongs from './TopSongs.tsx';
 import MonthlyActivity from './MonthlyActivity.tsx';
 import RecentlyListened from './RecentlyListened.tsx';
 import CurrentSong from './CurrentSong.tsx';
@@ -46,7 +46,7 @@ function Main() {
 
         async function fetchMostStreamedArtists() {
 
-            const response = await fetch("https://api.spotify.com/v1/me/top/artists?limit=5&time_range=short_term", {
+            const response = await fetch("https://api.spotify.com/v1/me/top/artists?limit=5&time_range=medium_term", {
 
                 method: "GET",
                 headers: { Authorization: `Bearer ${access_token}` },
