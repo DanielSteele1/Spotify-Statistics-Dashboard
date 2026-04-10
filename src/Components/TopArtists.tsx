@@ -37,7 +37,6 @@ function Artists({ MostStreamedArtists }: MostStreamedArtistsProps) {
         <section className="top-artists-widget">
             <span id="component-heading"> 🧑‍🎨 Top five Artists </span>
 
-
             {artistItems.map((item, index: number) => (
                 <div className="artist">
                     <Artist

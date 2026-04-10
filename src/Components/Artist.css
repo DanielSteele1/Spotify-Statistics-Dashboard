@@ -1,4 +1,12 @@
 
+.top-artists-widget{
+
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    margin: 0 auto;
+}
+
 .artist{
     display: flex;
     flex-direction: row;

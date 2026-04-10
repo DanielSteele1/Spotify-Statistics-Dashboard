@@ -12,7 +12,7 @@ interface ArtistProps {
 function Artist({ index, image, name }: ArtistProps) {
 
     return (
-        < div className="artist-info">
+        <div className="artist-info">
             <div className="artist-score">
                 # {index + 1}
             </div>
