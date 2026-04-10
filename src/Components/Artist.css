@@ -1,7 +1,8 @@
 .top-artists-widget {
     display: flex;
     flex-direction: column;
-    margin: 0 auto;
+    height: 300px;
+    width: 100%;
 }
 
 .artists {
@@ -16,6 +17,7 @@
     flex-direction: row;
     width: 100%;
     height: fit-content;
+    padding-right: 10px;
 }
 
 .artist-info {
@@ -38,12 +40,6 @@
     padding: 10px;
 }
 
-.artist-image {
-    display: flex;
-    height: 100px;
-    width: fit-content;
-}
-
 .artist-image img {
     display: flex;
     height: 110px;
@@ -55,7 +51,7 @@
 .artist-name {
     display: flex;
     font-size: 1.5rem;
-    padding-top: 5px;
+    padding-top: 20px;
     align-items: center;
     justify-content: flex-start;
 }
