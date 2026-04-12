@@ -1,5 +1,9 @@
 
 
+import useStore from './ZustandStore.tsx';
+import ArtistSkeleton from './ArtistSkeleton.tsx';
+
+
 import Artist from './Artist.tsx';
 import './Artist.css';
 interface MostStreamedArtistsProps {
@@ -27,24 +31,34 @@ interface imagesArray {
 
 function Artists({ MostStreamedArtists }: MostStreamedArtistsProps) {
 
+    const isLoggedin = useStore((state: any) => state.isLoggedin);
+
     const artistItems = MostStreamedArtists?.items || [];
 
     return (
         <section className="top-artists-widget">
             <span id="component-heading"> 🧑‍🎨 Top five Artists </span>
-            <div className="artists">
+            {isLoggedin ?
+                <div className="artists">
                     {artistItems.map((item, index: number) => (
-                            <div className="artist">
-                                <Artist
-                                    key={index}
-                                    index={index}
-                                    image={item.images?.[0]?.url}
-                                    name={item.name}
-                                />
-                            </div>
-                        ))
+                        <div className="artist">
+                            <Artist
+                                key={index}
+                                index={index}
+                                image={item.images?.[0]?.url}
+                                name={item.name}
+                            />
+                        </div>
+                    ))
                     }
-            </div>
+                </div>
+                :
+                <div className="artists">
+                        <div className="artist">
+                            <ArtistSkeleton />
+                        </div>
+                </div>
+            }
         </section>
     );
 }

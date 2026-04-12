@@ -56,7 +56,7 @@ body {
   box-shadow: none;
 }
 
-.login-warning{
+.login-warning {
   display: flex;
   padding: 10px;
   font-size: 1.0rem;
@@ -323,6 +323,7 @@ body {
   border-radius: 8px;
   background-color: var(--background-secondary);
   margin: 10px;
+  padding: 5px;
   color: var(--text-color);
 }
 
@@ -450,7 +451,7 @@ body {
 }
 
 
-.profile-img{
+.profile-img {
   height: fit-content;
 }
 
@@ -866,12 +867,12 @@ body {
 }
 
 
-.CarouselError{
+.CarouselError {
   background-color: var(--background-secondary);
   border-radius: 10px;
 }
 
-.img-skeleton-mobile{
+.img-skeleton-mobile {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -879,7 +880,7 @@ body {
   width: 100%;
 }
 
-.loggedin-image{
+.loggedin-image {
   display: flex;
   flex-direction: row;
   height: 40px;
@@ -889,7 +890,7 @@ body {
   justify-content: center;
 }
 
-.loggedin-image span{
+.loggedin-image span {
   font-size: 1.0rem;
   color: var(--text-color);
 }
@@ -940,7 +941,6 @@ body {
 
   .Dashboard>.dashboard-component:nth-child(3) {
     grid-column: span 1;
-
   }
 
   .Dashboard>.dashboard-component:nth-child(2) {
@@ -1197,6 +1197,8 @@ body {
   .dashboard-component {
     margin: 0 auto;
     min-width: 100%;
+    margin: 10px;
+    padding: 10px;
   }
 
   .monthly-activity-graph {
@@ -1309,24 +1311,19 @@ body {
     width: 80%;
   }
 
-  .dashboard-component3 {
-    width: 80%;
-  }
-
   .recent-widget {
     width: 100%;
     margin: 0 auto;
   }
 
-  .recent-grid {
+  .component3 {
+    display: flex;
     width: 100%;
+
   }
 
-  .song-art img {
-    width: fit-content;
-    height: 150px !important;
-    font-size: 1.0rem !important;
-    margin: 10px;
+  .recent-grid {
+    width: 100%;
   }
 
   .Front-page {
@@ -1366,15 +1363,10 @@ body {
   }
 
   .Dashboard>.dashboard-component:nth-child(3) {
-    display: flex;
     width: 80%;
     background-color: var(--background-secondary);
   }
 
-  .song {
-    width: 100%;
-    max-width: 450px;
-  }
 
   .song span {
     font-size: 1.0rem;
@@ -1387,6 +1379,38 @@ body {
 
   #link-title {
     width: 100%;
+  }
+
+  .login-warning {
+    margin: 10px;
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .song {
+    height: fit-content;
+    width: 100%;
+    height: fit-content;
+  }
+
+  .song-picture img {
+    height: 100%;
+    border-radius: 8px;
+  }
+
+  #link-title{
+   display:block;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   max-height:50px;
+  }
+
+  
+  #link-title{
+   display:block;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   max-height:50px;
   }
 
 }

@@ -23,7 +23,7 @@ function NavigationLoggedin({ }: ProfileProps) {
 
     return (
         <div className="loggedin-image">
-            <span> Logged in as {profileData?.display_name}</span> 
+            <span> {profileData?.display_name}</span> 
             <img src={ProfileImageUrl} />
         </div>
     );

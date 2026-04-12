@@ -1,6 +1,5 @@
 import './CurrentSong.css'
 
-
 interface artistsArray {
 
     name: string;
@@ -21,7 +20,6 @@ interface deviceArray {
 }
 
 interface items {
-
     images: imageArray[];
     name: string;
     artists: artistsArray[];
@@ -48,7 +46,6 @@ function CurrentSong({ CurrentSong }: CurrentSongProps) {
 
     const progress = CurrentSong?.item.progress_ms;
     const DeviceType = CurrentSong?.item.device[0].type;
-
 
     return (
         <section>

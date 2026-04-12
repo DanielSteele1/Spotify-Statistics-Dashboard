@@ -14,7 +14,7 @@ const useStore = create((set) => ({
     setLoading: (data: boolean) => set({ isLoading: data }),
 
     //used to check if user is loggedIn or not, will check once a user has logged in with spotify.
-    isLoggedin: true,
+    isLoggedin: false,
     setLoggedin: (data: boolean) => set({ isLoggedin: data }),
 }));
 

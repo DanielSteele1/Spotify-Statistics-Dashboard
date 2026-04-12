@@ -79,7 +79,6 @@ function Main() {
             const RecentlyListened_data = await response.json();
             setRecentlyListened(RecentlyListened_data);
             console.log(RecentlyListened_data);
-
         }
 
         async function fetchProfile() {
@@ -144,7 +143,6 @@ function Main() {
                 method: 'GET',
                 headers: { Authorization: `Bearer ${access_token}` },
             });
-
 
             if (response.status === 204 || response.status > 400) {
                 console.log("Nothing playing, or an error occured. Please try again later.");
