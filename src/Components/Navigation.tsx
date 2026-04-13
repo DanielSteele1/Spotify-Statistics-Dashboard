@@ -1,4 +1,4 @@
-import { FaChartArea, FaChartSimple } from "react-icons/fa6";
+import { FaChartArea, FaChartSimple, FaSpotify } from "react-icons/fa6";
 import { Button } from '@mantine/core';
 import { FaHome } from 'react-icons/fa';
 import { MoonIcon, SunIcon } from '@radix-ui/react-icons';
@@ -34,15 +34,17 @@ function Navigation({ handleThemeButton, isLightOn }: NavigationProps) {
                 <div className="nav-buttons">
                     {isLoggedin ?
                         <NavigationLoggedin ProfileData={null} />
-                        : 
+                        :
                         <div className="nav-button">
                             <Button
                                 color="green.7"
                                 className="accounts-button"
                                 component="a"
-                                href="/signup"
+                                href="/login"
                             >
-                                <span> Sign up </span>
+                                <span style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                                    Connect App <FaSpotify />
+                                </span>
                             </Button>
                         </div>
 
@@ -90,7 +92,7 @@ function Navigation({ handleThemeButton, isLightOn }: NavigationProps) {
                         <div className="navbar-mobile-container">
 
                             <button className="accounts-button">
-                                <a href="/signup">
+                                <a href="/login">
                                     <IoPersonCircle style={{ display: 'flex', alignContent: 'center' }} />
                                     <span> Sign up </span>
                                 </a>

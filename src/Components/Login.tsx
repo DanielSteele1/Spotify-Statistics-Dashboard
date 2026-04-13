@@ -1,8 +1,9 @@
 
-import { PasswordInput, TextInput } from '@mantine/core';
-import { BsArrowRight } from 'react-icons/bs';
 import { Button } from '@mantine/core';
+import { FaChartArea, FaSpotify } from 'react-icons/fa6';
 
+import { Alert } from '@mantine/core';
+import { IoWarningSharp } from 'react-icons/io5';
 
 interface loginProps {
 
@@ -62,56 +63,58 @@ function Login({ clientId, redirectUri }: loginProps) {
         window.location.href = authUrl.toString();
     }
 
+    const Icon: React.ReactNode = <IoWarningSharp />;
+
     return (
         <section className="Login">
+
+
             <div className="login-container">
+
+                <div className="warning-container">
+                    <Alert
+                        className="warning"
+                        variant='filled'
+                        title="Warning"
+                        icon={Icon}
+                        radius={10}
+                        
+                    >
+                        Authentication currently diabled while dashboard is being developed.
+                        Be sure to check back soon!
+
+                    </Alert>
+                </div>
+
                 <div className="login-backing">
 
                     <div className="signup-title">
-                        AudioStats - Charts for Spotify
+                        <FaChartArea style={{ fontSize: '50px', color: '#1db948' }} />
+                        AudioStats
                     </div>
+
 
                     <div className="login-desc">
-                        Login to your account here
-                    </div>
-
-                    <div className="credentials-container">
-
-                        <TextInput
-                            id="username"
-                            variant="filled"
-                            description="Username or Email"
-                            placeholder="Username or Email"
-                            w="100%"
-                            h="fit-content"
-                            styles={{ input: { marginBottom: '10px' } }}
-                        />
-
-                        <PasswordInput
-                            id="password"
-                            variant="filled"
-                            description="Password"
-                            placeholder="Input placeholder"
-                            w="100%"
-                            styles={{ input: { marginBottom: '10px' } }}
-                        />
-
+                        Connect with spotify to see your stats. Once you click the button below,
+                        you will be redirected to spotify in order to authorise AudioStats.
                     </div>
 
 
-                    <div className="signup-button">
+                    <div className="login-button-container">
+
+
                         <Button
+                            className="signup-button"
+                            color='green.7'
+                            size='lg'
+                            radius='lg'
                             onClick={Authentication}
-                            id="Signup-button"
-                            rightSection={<BsArrowRight />}
-                            color="green"
+                            disabled
                         >
-                            Login
+                            <span style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                                Connect with Spotify <FaSpotify style={{ fontSize: '25px' }} />
+                            </span>
                         </Button>
-                    </div>
-
-                    <div className="login-footer">
-                        Don't have an account? Sign up <a href="/signup">here</a>
                     </div>
 
                 </div>

@@ -5,7 +5,6 @@ function TopGenres() {
         <section className="Posts-widget">
             <span id="component-heading"> 📈 Top Genres </span>
 
-           
         </section>
     )
 }

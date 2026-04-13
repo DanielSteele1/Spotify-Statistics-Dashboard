@@ -56,6 +56,30 @@ body {
   box-shadow: none;
 }
 
+.warning-container {
+  height: fit-content;
+}
+
+.warning {
+  margin-bottom: 15px !important;
+  width: 100%;
+  margin: 0 auto;
+  background-color: var(--background-secondary) !important;
+  color: var(--text-color) !important;
+}
+
+
+.m_7fa78076:where([data-variant="filled"]) {
+  color: var(--text-color) !important;
+  font-size: 1.0rem;
+
+}
+
+#mantine-ug5t3dnxb-title{
+   font-size: 1.3rem !important;
+  color: var(--text-color);
+}
+
 .login-warning {
   display: flex;
   padding: 10px;
@@ -228,9 +252,6 @@ body {
 
 .accounts-button {
   border-radius: 10px !important;
-  box-shadow: none !important;
-  white-space: nowrap !important;
-  margin-left: 10px;
 }
 
 .accounts-button a {
@@ -243,6 +264,7 @@ body {
   margin-right: 10px;
   font-size: 20px;
 }
+
 
 .nav-button .theme-button {
 
@@ -561,12 +583,12 @@ body {
   padding-right: 10px;
 }
 
-.signup-container,
-.login-container {
+.signup-backing,
+.login-backing {
   display: flex;
-  width: fit-content;
   margin: 0 auto;
-  width: 30%;
+  width: 100%;
+  height: 400px;
   padding: 20px;
   background-color: var(--background-secondary);
   color: var(--text-color);
@@ -586,7 +608,7 @@ body {
   align-items: center;
   width: 100%;
   height: 80px;
-  font-size: 2.0rem;
+  font-size: 2.5rem;
   border-radius: 15px;
   font-family: 'figtree', sans-serif;
   font-weight: 600;
@@ -595,7 +617,7 @@ body {
 .signup-desc,
 .login-desc {
   display: flex;
-  width: 80%;
+  width: 50%;
   margin: 0 auto;
   align-items: center;
   justify-content: center;
@@ -626,12 +648,21 @@ body {
   margin-right: 10px;
 }
 
+.login-button-container {
+  display: flex;
+  margin: 0 auto;
+  height: 100px;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
 .signup-button,
 .login-button {
   width: 100%;
   margin: 0 auto;
   justify-content: center;
   align-items: center;
+  margin: 10px;
 }
 
 #Signup-button,
@@ -982,7 +1013,7 @@ body {
   .login-container {
     display: flex;
     width: fit-content;
-    width: 70%;
+    width: 80%;
     margin: 0 auto;
     flex-direction: column;
   }
@@ -1036,9 +1067,8 @@ body {
 
 @media (min-width: 200px) and (max-width: 750px) {
 
-  #root{
-    min-width:300px;
-    
+  #root {
+    min-width: 300px;
   }
 
   .signup-container,
@@ -1047,14 +1077,21 @@ body {
     width: fit-content;
     width: 80%;
     margin: 0 auto;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
+  }
+
+  .signup-title svg {
+    display: none;
   }
 
   .signup-title {
     display: flex;
-    font-size: 1.5rem;
+    font-size: 2.0rem;
     flex-direction: column;
     text-align: center;
+    padding: 10px;
   }
 
   .ErrorMessage {
@@ -1407,14 +1444,14 @@ body {
     height: fit-content;
   }
 
-  .song-info{
+  .song-info {
     justify-content: flex-start;
   }
 
-  .song-picture{
+  .song-picture {
     width: 50px;
     height: 50px;
-    min-width:50px;
+    min-width: 50px;
   }
 
   .song-picture img {
@@ -1422,7 +1459,7 @@ body {
     border-radius: 8px;
   }
 
-  #comment-body{
+  #comment-body {
     display: none;
   }
 

@@ -17,7 +17,7 @@ function FrontPage() {
                     </span>
                 </div>
 
-                <a href="/signup" className="sign-up-button">
+                <a href="/login" className="sign-up-button">
                     <Button
                         className="frontpage-sign-up"
                         color='green.7'
