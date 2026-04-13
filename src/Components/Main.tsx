@@ -228,48 +228,50 @@ function Main() {
                     </div>
                 }
 
-                <div className="Dashboard">
+                {/* <div className="Dashboard"> */}
 
-                    {isLoading ?
-                        <div className="genres-skeleton">
-                            <Skeleton height={200} />
-                        </div>
-                        :
 
-                        <div className="dashboard-component">
-                            <div className="component1">
-                                <TopGenres />
-                            </div>
-                        </div>
-                    }
 
-                    {isLoading ?
-                        <div className="artists-skeleton">
-                            <Skeleton height={200} />
+                {isLoading ?
+                    <div className="artists-skeleton">
+                        <Skeleton height={200} />
+                    </div>
+                    :
+                    <div className="dashboard-component">
+                        <div className="component2">
+                            <Artists MostStreamedArtists={mostStreamed_Artists} />
                         </div>
-                        :
-                        <div className="dashboard-component">
-                            <div className="component2">
-                             <Artists MostStreamedArtists={mostStreamed_Artists} />
-                            </div>
-                        </div>
-                    }
+                    </div>
+                }
 
-                    {isLoading ?
 
-                        <div className="recently-listened-skeleton">
-                            <Skeleton height={200} />
+                {isLoading ?
+                    <div className="genres-skeleton">
+                        <Skeleton height={200} />
+                    </div>
+                    :
+
+                    <div className="dashboard-component">
+                        <div className="component1">
+                            <TopGenres />
                         </div>
-                        :
-                        <div className="dashboard-component">
-                            <div className="component3">
-                                <RecentlyListened isLoggedin={isLoggedin} RecentlyListenedData={RecentlyListened_data} />
-                            </div>
+                    </div>
+                }
+                {isLoading ?
+
+                    <div className="recently-listened-skeleton">
+                        <Skeleton height={200} />
+                    </div>
+                    :
+                    <div className="dashboard-component">
+                        <div className="component3">
+                            <RecentlyListened isLoggedin={isLoggedin} RecentlyListenedData={RecentlyListened_data} />
                         </div>
-                    }
-                </div>
+                    </div>
+                }
             </div>
         </div>
+        // </div>
     )
 }
 

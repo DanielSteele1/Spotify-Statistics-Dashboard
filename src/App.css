@@ -336,25 +336,25 @@ body {
   width: 100%;
 }
 
-.Dashboard>.dashboard-component:nth-child(0) {
+.dashboard-component:nth-child(0) {
   display: flex;
   width: 100%;
 }
 
-.Dashboard>.dashboard-component:nth-child(1) {
+.dashboard-component:nth-child(1) {
   grid-column: span 1;
 }
 
-.Dashboard>.dashboard-component:nth-child(2) {
+.dashboard-component:nth-child(2) {
   grid-column: span 1;
   background-color: var(--background);
 }
 
-.Dashboard>.dashboard-component:nth-child(3) {
+.dashboard-component:nth-child(3) {
   grid-column: span 1;
 }
 
-.Dashboard>.dashboard-component:nth-child(2):hover {
+.dashboard-component:nth-child(2):hover {
   transform: translateY(-0.0rem);
 }
 
