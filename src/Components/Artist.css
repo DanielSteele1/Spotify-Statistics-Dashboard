@@ -71,8 +71,15 @@
 
     .artists{
         display: flex;
+        flex-direction: column;
         padding-top: 10px;
-        height: 200px;
+        height: fit-content;
         justify-content: center;
     }
+
+    .artist-name {
+    font-size: 1.3rem;
+    padding-top: 10px;
+    }
+
 }

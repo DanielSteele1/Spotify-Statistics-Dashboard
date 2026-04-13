@@ -12,7 +12,6 @@ interface ProfileProps {
     ProfileData: {
         images: Image[];
         display_name: string;
-
     } | null;
 }
 

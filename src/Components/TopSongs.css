@@ -121,13 +121,12 @@
     }
 }
 
-@media (min-width: 300px) and (max-width: 750px) {
-
+@media (min-width: 200px) and (max-width: 750px) {
 
     .song-container{
         display: flex;
         min-height:fit-content;
-        padding: 0px;
+        padding: 10px;
     }
 
     .top-songs {
@@ -136,12 +135,6 @@
 
     .top-songs #component-heading {
         text-align: center;
-    }
-
-    .song-art img {
-        display: flex;
-        width: 100%;
-        height: 80px;
     }
 
     .song-details{

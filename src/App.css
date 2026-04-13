@@ -862,9 +862,19 @@ body {
 
 .sign-up-button {
   display: flex;
-  height: 200px;
-  margin: 10px;
+  height: 250px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
+
+.sign-in-button span {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
 
 
 .CarouselError {
@@ -1026,6 +1036,11 @@ body {
 }
 
 @media (min-width: 200px) and (max-width: 750px) {
+
+  #root{
+    min-width:300px;
+    
+  }
 
   .signup-container,
   .login-container {
@@ -1191,7 +1206,7 @@ body {
   }
 
   .dashboard-container {
-    width: 90%;
+    width: 80%;
   }
 
   .dashboard-component {
@@ -1393,24 +1408,63 @@ body {
     height: fit-content;
   }
 
+  .song-info{
+    justify-content: flex-start;
+  }
+
+  .song-picture{
+    width: 50px;
+    height: 50px;
+    min-width:50px;
+  }
+
   .song-picture img {
     height: 100%;
     border-radius: 8px;
   }
 
-  #link-title{
-   display:block;
-   overflow: hidden;
-   text-overflow: ellipsis;
-   max-height:50px;
+  #comment-body{
+    display: none;
   }
 
-  
-  #link-title{
-   display:block;
-   overflow: hidden;
-   text-overflow: ellipsis;
-   max-height:50px;
+  #link-title {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 50px;
+  }
+
+
+  #link-title {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 50px;
+  }
+
+
+  .frontpage-container {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 100%;
+    height: 100dvh;
+  }
+
+  .frontpage-title {
+    width: 80%;
+    margin: 0 auto;
+    font-size: 4.0rem;
+  }
+
+  .frontpage-title-container {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .frontpage-sub-heading {
+    line-height: 2.9rem;
   }
 
 }

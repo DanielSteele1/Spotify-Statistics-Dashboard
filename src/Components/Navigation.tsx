@@ -45,7 +45,7 @@ function Navigation({ handleThemeButton, isLightOn }: NavigationProps) {
                                 <span> Sign up </span>
                             </Button>
                         </div>
-                        
+
                     }
 
                     <div className="nav-button">

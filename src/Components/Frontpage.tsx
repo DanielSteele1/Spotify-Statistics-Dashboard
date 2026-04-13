@@ -1,12 +1,11 @@
 import { Button } from '@mantine/core';
 import './Frontpage.css';
-import { PersonIcon } from '@radix-ui/react-icons';
+import { FaSpotify } from 'react-icons/fa6';
 
-const FrontPage = () => {
+function FrontPage() {
 
     return (
         <section className="frontpage-container">
-
             <div className='frontpage'>
 
                 <div className="frontpage-title-container">
@@ -25,10 +24,10 @@ const FrontPage = () => {
                         size='lg'
                         radius='lg'
                     >
-                        <span> Sign up now <PersonIcon style={{ fontSize: '20px', marginLeft: '10px' }} /> </span>
-
+                        <span style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                            Connect with Spotify <FaSpotify style={{ fontSize: '25px' }} />
+                        </span>
                     </Button>
-
                 </a>
             </div>
         </section>
