@@ -15,24 +15,26 @@ function ArtistSkeleton() {
 
     return (
         <>
-            {MockArtistArray.map((artist: any) => (
+            {
+                MockArtistArray.map((artist: any) => (
+                    <div className="artist-info-skeleton" key={artist.key}>
 
-                <div className="artist-info-skeleton" key={artist.key}>
-                    <div className="artist-score">
-                        # {artist.index}
-                    </div>
+                        <div className="artist-score">
+                            # {artist.index}
+                        </div>
 
-                    <div className="artist-image-skeleton">
-                        {artist.image}
-                    </div>
+                        <div className="artist-image-skeleton">
+                            {artist.image}
+                        </div>
 
-                    <div className="artist-info">
-                        <div className="artist-name">
-                            {artist.name}
+                        <div className="artist-info">
+                            <div className="artist-name">
+                                {artist.name}
+                            </div>
                         </div>
                     </div>
-                </div>
-            ))}
+                ))
+            }
         </>
     );
 }

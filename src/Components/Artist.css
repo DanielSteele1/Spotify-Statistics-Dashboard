@@ -16,7 +16,6 @@
 .artist {
     display: flex;
     flex-direction: row;
-    width: 100%;
     height: fit-content;
     padding-right: 10px;
 }
@@ -63,23 +62,50 @@
 
 @media(min-width: 200px) and (max-width: 750px) {
 
-    .top-artists-widget{
+    .top-artists-widget {
         display: flex;
         justify-content: flex-start;
-        height: 250px;
+        height: fit-content;
+
     }
 
-    .artists{
-        display: flex;
-        flex-direction: column;
+    .artist-image {
+        padding: 0px;
+    }
+
+    .artists {
+        display: grid;
+        margin: 0 auto;
+        grid-template-columns: repeat(2, 1fr);
         padding-top: 10px;
         height: fit-content;
         justify-content: center;
     }
 
+    .artist-image{
+        height: fit-cotnent;
+    }
+
+    .artist-image img{
+        height: 150px;
+    }
+
+
+    .artist {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        margin: 0 auto;
+        justify-content: center;
+        align-items: center;
+        border-radius: 100px;
+    }
+
+    .artists>.artist-info-skeleton:not(.artist) {
+        display: contents;
+    }
+
     .artist-name {
-    font-size: 1.3rem;
-    padding-top: 10px;
+        font-size: 1.3rem;
     }
 
 }
