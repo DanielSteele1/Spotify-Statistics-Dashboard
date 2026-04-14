@@ -4,6 +4,7 @@ import { FaChartArea, FaSpotify } from 'react-icons/fa6';
 
 import { Alert } from '@mantine/core';
 import { IoWarningSharp } from 'react-icons/io5';
+import { PersonIcon } from '@radix-ui/react-icons';
 
 interface loginProps {
 
@@ -14,7 +15,6 @@ interface loginProps {
 function Login({ clientId, redirectUri }: loginProps) {
 
     async function Authentication() {
-
         // generate a random string of text
 
         const generateRandomString = (length: number) => {
@@ -63,12 +63,15 @@ function Login({ clientId, redirectUri }: loginProps) {
         window.location.href = authUrl.toString();
     }
 
+
+    function Mock() {
+
+    }
+
     const Icon: React.ReactNode = <IoWarningSharp />;
 
     return (
         <section className="Login">
-
-
             <div className="login-container">
 
                 <div className="warning-container">
@@ -78,7 +81,6 @@ function Login({ clientId, redirectUri }: loginProps) {
                         title="Warning"
                         icon={Icon}
                         radius={10}
-                        
                     >
                         Authentication currently diabled while dashboard is being developed.
                         Be sure to check back soon!
@@ -99,9 +101,7 @@ function Login({ clientId, redirectUri }: loginProps) {
                         you will be redirected to spotify in order to authorise AudioStats.
                     </div>
 
-
                     <div className="login-button-container">
-
 
                         <Button
                             className="signup-button"
@@ -109,10 +109,22 @@ function Login({ clientId, redirectUri }: loginProps) {
                             size='lg'
                             radius='lg'
                             onClick={Authentication}
-                            disabled
+                            
                         >
                             <span style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                                 Connect with Spotify <FaSpotify style={{ fontSize: '25px' }} />
+                            </span>
+                        </Button>
+
+                        <Button
+                            className="signup-button"
+                            color='green.7'
+                            size='lg'
+                            radius='lg'
+                            onClick={Mock}
+                        >
+                            <span style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                                View Mock Profile <PersonIcon style={{ fontSize: '25px' }} />
                             </span>
                         </Button>
                     </div>

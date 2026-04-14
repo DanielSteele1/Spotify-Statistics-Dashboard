@@ -62,13 +62,17 @@ function Navigation({ handleThemeButton, isLightOn }: NavigationProps) {
 
                     <div className="nav-button">
 
-                        <button
-                            className="dashboard-button">
-                            <a href="/dashboard">
-                                <FaChartSimple style={{ display: 'flex', alignContent: 'center' }} />
-                                <span> Dashboard </span>
-                            </a>
-                        </button>
+                        {isLoggedin ?
+                            <> </>
+                            :
+                            <button
+                                className="dashboard-button">
+                                <a href="/dashboard">
+                                    <FaChartSimple style={{ display: 'flex', alignContent: 'center' }} />
+                                    <span> Dashboard </span>
+                                </a>
+                            </button>
+                        }
                     </div>
 
                     <div className="nav-button">
@@ -79,7 +83,6 @@ function Navigation({ handleThemeButton, isLightOn }: NavigationProps) {
                             {isLightOn ? <SunIcon /> : <MoonIcon />}
                         </button>
                     </div>
-
 
                     <button
                         className="nav-hamburger"
