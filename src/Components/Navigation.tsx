@@ -1,15 +1,17 @@
-import { FaChartArea, FaChartSimple, FaSpotify } from "react-icons/fa6";
-import { Button } from '@mantine/core';
+import { FaChartArea, FaChartSimple } from "react-icons/fa6";
 import { FaHome } from 'react-icons/fa';
-import { MoonIcon, SunIcon } from '@radix-ui/react-icons';
+import { IoMoon, IoSunny } from "react-icons/io5";
 import { RxHamburgerMenu } from "react-icons/rx";
 
 import { useState } from "react";
-import { IoPersonCircle } from "react-icons/io5";
 
 import NavigationLoggedin from './Navigation-loggedin.tsx';
 
 import useStore from "./ZustandStore";
+import { Link } from "react-router";
+import { Tooltip } from "react-tooltip";
+
+import Logout from './Logout.tsx';
 
 interface NavigationProps {
     handleThemeButton: React.MouseEventHandler<HTMLButtonElement>
@@ -19,6 +21,7 @@ interface NavigationProps {
 function Navigation({ handleThemeButton, isLightOn }: NavigationProps) {
 
     const isLoggedin = useStore((state: any) => state.isLoggedin);
+    const isMockData = useStore((state: any) => state.isMockData);
 
     const [NavOpen, setNavOpen] = useState(false);
     const toggleNav = () => setNavOpen(o => !o);
@@ -26,63 +29,57 @@ function Navigation({ handleThemeButton, isLightOn }: NavigationProps) {
     return (
         <div className="Navigation-container">
             <div className="Navigation">
-                <div className="nav-logo">
-                    <FaChartArea style={{ fontSize: '20px' }} />
-                    Audio <span id="logo-2">Stats</span>
-                </div>
+                <Link to="/">
+                    <div className="nav-logo">
+                        <FaChartArea style={{ fontSize: '20px' }} />
+                        <div className="logo-text">
+                            Audio <span id="logo-2">Stats</span>
+                        </div>
+                    </div>
+                </Link>
 
                 <div className="nav-buttons">
-                    {isLoggedin ?
-                        <NavigationLoggedin ProfileData={null} />
-                        :
-                        <div className="nav-button">
-                            <Button
-                                color="green.7"
-                                className="accounts-button"
-                                component="a"
-                                href="/login"
-                            >
-                                <span style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                                    Connect App <FaSpotify />
-                                </span>
-                            </Button>
-                        </div>
-
-                    }
-
-                    <div className="nav-button">
-                        <button
-                            className="home-button">
-                            <a href="/">
-                                <FaHome style={{ display: 'flex', alignContent: 'center' }} />
-                                <span> Home </span>
-                            </a>
-                        </button>
-                    </div>
-
-                    <div className="nav-button">
-
-                        {isLoggedin ?
-                            <> </>
-                            :
-                            <button
-                                className="dashboard-button">
-                                <a href="/dashboard">
-                                    <FaChartSimple style={{ display: 'flex', alignContent: 'center' }} />
-                                    <span> Dashboard </span>
-                                </a>
-                            </button>
-                        }
-                    </div>
-
                     <div className="nav-button">
                         <button
                             className="theme-button"
                             onClick={handleThemeButton}
                         >
-                            {isLightOn ? <SunIcon /> : <MoonIcon />}
+                            {isLightOn ? <IoSunny style={{ fontSize: '1.3rem' }} /> : <IoMoon style={{ fontSize: '1.2rem' }} />}
                         </button>
                     </div>
+
+                    <div className="nav-button">
+                        {isLoggedin || isMockData ?
+                            <button
+                                className="dashboard-button">
+                                <Link to="/dashboard">
+                                    <FaChartSimple style={{ display: 'flex', alignContent: 'center' }} />
+                                    <span>Dashboard</span>
+                                </Link>
+                            </button>
+                            :
+                            <> </>
+                        }
+                    </div>
+
+                    {isLoggedin || isMockData ?
+                        <>
+                            <Logout />
+                            <NavigationLoggedin ProfileData={null} />
+                        </>
+                        :
+                        <div className="nav-button">
+
+                            <div className="loggedin-image"
+                                data-tooltip-id="my-tooltip"
+                                data-tooltip-content="You're Signed Out">
+                            </div>
+
+                            <Tooltip id="my-tooltip">
+                            </Tooltip>
+
+                        </div>
+                    }
 
                     <button
                         className="nav-hamburger"
@@ -91,30 +88,21 @@ function Navigation({ handleThemeButton, isLightOn }: NavigationProps) {
                     </button>
 
                     <div className={`navbar-mobile ${NavOpen ? 'visible' : ''}`}>
-
                         <div className="navbar-mobile-container">
-
-                            <button className="accounts-button">
-                                <a href="/login">
-                                    <IoPersonCircle style={{ display: 'flex', alignContent: 'center' }} />
-                                    <span> Sign up </span>
-                                </a>
-                            </button>
-
                             <button
                                 className="home-button">
-                                <a href="/">
+                                <Link to="/">
                                     <FaHome style={{ display: 'flex', alignContent: 'center' }} />
                                     <span> Home </span>
-                                </a>
+                                </Link>
                             </button>
 
                             <button
                                 className="dashboard-button">
-                                <a href="/dashboard">
+                                <Link to="/dashboard">
                                     <FaChartSimple style={{ display: 'flex', alignContent: 'center' }} />
                                     <span> Dashboard </span>
-                                </a>
+                                </Link>
                             </button>
                         </div>
                     </div>

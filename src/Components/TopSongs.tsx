@@ -5,6 +5,8 @@ import { Carousel } from '@mantine/carousel';
 import '@mantine/carousel/styles.css';
 import CarouselErrorMessage from './Error_Components/CarouselErorr';
 
+import { RiArrowRightSLine } from "react-icons/ri";
+import { Link } from 'react-router';
 interface SpotifyImage {
     height: number;
     width: number;
@@ -50,38 +52,41 @@ function TopSongs({ MostStreamedSongs }: TopSongsProps) {
 
     return (
         <section className="top-songs">
-            <span id="component-heading"> 🏆 Your most streamed songs this month </span>
+            <div className="headers">
+                <span id="component-heading"> 🏆 Your most streamed songs this month </span>
+                <Link to="/dashboard/top-songs">  <span id="component-subheading"> <RiArrowRightSLine /> </span> </Link>
+            </div>
 
-            {MostStreamedSongs?.items?.length
-                ? (
-                    <Carousel
-                        className="top-songs-carousel"
-                        slideSize="10%"
-                        height={250}
-                    >
-                        {MostStreamedSongs.items.map((item, key) => {
-                            const imageUrl = item.album.images[0]?.url;
-                            const imageName = item.name;
-                            const imageArtists = item.artists[0]?.name;
-                            const songUrl = item.external_urls.spotify;
+            <div className="songs-container">
+                {MostStreamedSongs?.items?.length
+                    ? (
+                        <Carousel
+                            className="top-songs-carousel"
+                            slideSize="10%"
+                            height={250}
+                        >
+                            {MostStreamedSongs.items.map((item, key) => {
+                                const imageUrl = item.album.images[0]?.url;
+                                const imageName = item.name;
+                                const imageArtists = item.artists[0]?.name;
+                                const songUrl = item.external_urls.spotify;
 
-                            return (
-                                <Carousel.Slide key={key}>
-                                    <Song
-                                        imageUrl={imageUrl}
-                                        imageName={imageName}
-                                        imageArtists={imageArtists}
-                                        songUrl={songUrl}
-                                    />
-                                </Carousel.Slide>
-                            );
-                        })}
-                    </Carousel>
-                )
-                : <CarouselErrorMessage />
-            }
-
-
+                                return (
+                                    <Carousel.Slide key={key}>
+                                        <Song
+                                            imageUrl={imageUrl}
+                                            imageName={imageName}
+                                            imageArtists={imageArtists}
+                                            songUrl={songUrl}
+                                        />
+                                    </Carousel.Slide>
+                                );
+                            })}
+                        </Carousel>
+                    )
+                    : <CarouselErrorMessage />
+                }
+            </div>
 
         </section >
     )

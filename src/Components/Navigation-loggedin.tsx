@@ -1,6 +1,8 @@
 
-
 import useStore from "./ZustandStore";
+import { Tooltip } from "react-tooltip";
+import 'react-tooltip/dist/react-tooltip.css';
+
 
 interface Image {
     url: string;
@@ -21,10 +23,17 @@ function NavigationLoggedin({ }: ProfileProps) {
     const ProfileImageUrl = profileData?.images?.[0]?.url;
 
     return (
-        <div className="loggedin-image">
-            <span> {profileData?.display_name}</span> 
-            <img src={ProfileImageUrl} />
-        </div>
+        <>
+            <div className="loggedin-image"
+                data-tooltip-id="my-tooltip"
+                data-tooltip-content={`Signed in as ${profileData?.display_name}`}>
+                <img src={ProfileImageUrl} />
+            </div>
+
+            <Tooltip id="my-tooltip">
+            </Tooltip>
+        </>
+
     );
 };
 

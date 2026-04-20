@@ -11,9 +11,9 @@ function MonthlyActivity() {
         { month: 'May', Songs: 50 },
         { month: 'June', Songs: 13 },
         { month: 'July', Songs: 20 },
-        { month: 'August', Songs: 0 },
+        { month: 'August', Songs: 40 },
         { month: 'September', Songs: 42 },
-        { month: 'October', Songs: 6 },
+        { month: 'October', Songs: 60 },
         { month: 'November', Songs: 3 },
         { month: 'December', Songs: 62 },
     ]
@@ -29,8 +29,8 @@ function MonthlyActivity() {
                     h={180}
                     data={data}
                     dataKey="month"
-                    yAxisProps={{ width: 40 }}
-                    barProps={{ radius: 4 }}
+                    yAxisProps={{ width: 30 }}
+                    barProps={{ radius: 5 }}
                     series={[{ name: 'Songs', color: 'green.7' }]}
                     tickLine="x"
                 />

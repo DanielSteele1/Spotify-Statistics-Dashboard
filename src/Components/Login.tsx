@@ -6,6 +6,8 @@ import { Alert } from '@mantine/core';
 import { IoWarningSharp } from 'react-icons/io5';
 import { PersonIcon } from '@radix-ui/react-icons';
 
+import useStore from './ZustandStore.tsx';
+
 interface loginProps {
 
     clientId: string;
@@ -14,6 +16,9 @@ interface loginProps {
 
 function Login({ clientId, redirectUri }: loginProps) {
 
+    const isMockData = useStore((state: any) => state.isMockData);
+    const setMockData = useStore((state: any) => state.setMockData);
+    
     async function Authentication() {
         // generate a random string of text
 
@@ -64,8 +69,19 @@ function Login({ clientId, redirectUri }: loginProps) {
     }
 
 
-    function Mock() {
+    function MockDataMode() {
 
+        if (isMockData === false) {
+
+            setMockData(true);
+            localStorage.setItem('isMockData', 'true');
+
+            window.location.href = ('/dashboard');
+        }
+        else {
+            localStorage.setItem('isMockData', 'false');
+            setMockData(false);
+        }
     }
 
     const Icon: React.ReactNode = <IoWarningSharp />;
@@ -81,10 +97,10 @@ function Login({ clientId, redirectUri }: loginProps) {
                         title="Warning"
                         icon={Icon}
                         radius={10}
-                    >
-                        Authentication currently diabled while dashboard is being developed.
-                        Be sure to check back soon!
 
+                    >
+                        Unfortunatly, due to spotify's new API restrictions, this app currently is disabled.
+                        However, you can still view the dashboard with mock data implemented by clicking below.
                     </Alert>
                 </div>
 
@@ -94,7 +110,6 @@ function Login({ clientId, redirectUri }: loginProps) {
                         <FaChartArea style={{ fontSize: '50px', color: '#1db948' }} />
                         AudioStats
                     </div>
-
 
                     <div className="login-desc">
                         Connect with spotify to see your stats. Once you click the button below,
@@ -109,7 +124,7 @@ function Login({ clientId, redirectUri }: loginProps) {
                             size='lg'
                             radius='lg'
                             onClick={Authentication}
-                            
+
                         >
                             <span style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                                 Connect with Spotify <FaSpotify style={{ fontSize: '25px' }} />
@@ -121,7 +136,7 @@ function Login({ clientId, redirectUri }: loginProps) {
                             color='green.7'
                             size='lg'
                             radius='lg'
-                            onClick={Mock}
+                            onClick={MockDataMode}
                         >
                             <span style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                                 View Mock Profile <PersonIcon style={{ fontSize: '25px' }} />

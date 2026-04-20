@@ -4,7 +4,6 @@ function SongPlaceholder() {
     return (
         <section className="song">
 
-            
         </section>
     )
 

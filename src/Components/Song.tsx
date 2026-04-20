@@ -4,6 +4,7 @@ import { type JSX } from "react";
 interface SongProps {
 
     isLoggedIn: boolean;
+    isMockData: boolean;
 
     key: number;
     played_at: string;

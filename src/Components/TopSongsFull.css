@@ -1,0 +1,92 @@
+.component-heading {
+    display: flex;
+    flex-direction: row;
+    height: fit-content;
+    font-size: 2.0rem;
+    padding: 10px;
+    color: var(--text-color);
+    width: 100%;
+}
+
+.component {
+    background-color: var(--background-secondary);
+    width: 100%;
+    border-radius: 10px;
+    height: fit-content;
+}
+
+
+.search-bar {
+    display: flex;
+    margin: 10px;
+    width: 80%;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    background-color: var(--background-third);
+    border: 2px solid transparent;
+    border-radius: 15px;
+    padding: 10px;
+
+}
+
+.search-bar:focus {
+    outline: none;
+    border: 2px solid var(--main-highlight);
+}
+
+.top-song {
+    display: flex;
+    width: 100%;
+    height: fit-content;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px;
+}
+
+#component-subheading {
+    background-color: var(--background-third);
+
+    margin-top: 5px;
+    margin-right: 10px;
+}
+
+
+.song-pic img {
+    height: 80px;
+    width: 80px;
+    border-radius: 10px;
+}
+
+#song-place {
+    display: flex;
+    padding: 10px;
+    color: var(--text-color);
+    margin: 10px;
+    height: 40px;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 1.5rem;
+}
+
+#link-title-all{
+    color: var(--text-color);
+    font-size: 1.4rem;
+}
+
+#artist-name{
+    color: rgb(95, 91, 91);
+}
+
+@media(min-width: 300px) and (max-width: 750px) {
+
+
+    .Top-songs-full {
+        display: flex;
+        margin-top: 80px;
+        width: 100%;
+        padding: 10px;
+    }
+
+
+}

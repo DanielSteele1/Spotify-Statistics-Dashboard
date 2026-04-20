@@ -3,6 +3,7 @@ import { Skeleton } from "@mantine/core";
 import { CopyIcon } from "@radix-ui/react-icons";
 import { IoAlertOutline, IoPersonCircle, IoSparkles } from "react-icons/io5";
 import Toastify from "toastify-js";
+import useStore from './ZustandStore.tsx';
 
 interface ProfileProps {
     ProfileData: {
@@ -39,6 +40,8 @@ function CopyLink({ ProfileData }: ProfileProps) {
 
 function Profile({ ProfileData }: ProfileProps) {
 
+    const isMockData = useStore((state: any) => state.isMockData);
+
     // pick the first image in the images array (if any)
     const profileImageUrl = ProfileData?.images?.[0]?.url;
 
@@ -48,9 +51,10 @@ function Profile({ ProfileData }: ProfileProps) {
 
                 <div className="profile-info">
                     <div className="profile-name">
-                        Welcome, {ProfileData?.display_name || 'user'} 👋
+                        Welcome, {isMockData ? ProfileData?.display_name : 'Guest'} 👋
                     </div>
 
+                    
                     <div className="profile-img-mobile">
                         {profileImageUrl ?
                             <img src={profileImageUrl} alt="profile" width="200" height="200" /> :
@@ -94,9 +98,9 @@ function Profile({ ProfileData }: ProfileProps) {
 
                 <div className="profile-img">
                     {profileImageUrl ?
-                        <img src={profileImageUrl} alt="profile" width="200" height="200" /> 
-                        : <div className="personIcon"> 
-                         <IoPersonCircle  style={{fontSize: '30px'}}/>
+                        <img src={profileImageUrl} alt="profile" width="200" height="200" />
+                        : <div className="personIcon">
+                            <IoPersonCircle style={{ fontSize: '30px' }} />
                         </div>
 
                     }
@@ -106,7 +110,7 @@ function Profile({ ProfileData }: ProfileProps) {
             <div className="profile-stats">
 
                 <div className="stat-item">
-                    <span className="stat-number">0</span>
+                    <span className="stat-number">10</span>
                     <span className="stat-text">Playlists</span>
                 </div>
 
@@ -117,7 +121,7 @@ function Profile({ ProfileData }: ProfileProps) {
 
                 <div className="stat-item">
                     <span className="stat-number">50</span>
-                    <span className="stat-text">Songs listened</span>
+                    <span className="stat-text">Streams</span>
                 </div>
 
             </div>

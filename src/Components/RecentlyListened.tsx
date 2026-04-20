@@ -3,6 +3,7 @@ import Song from './Song.tsx';
 
 //import { randomId } from '@mantine/hooks';
 import { Pagination, Skeleton } from '@mantine/core';
+import useStore from './ZustandStore.tsx';
 
 interface ImageObject {
     height: number;
@@ -30,17 +31,18 @@ interface Item {
 }
 
 interface RecentlyListenedProps {
-    RecentlyListenedData: {
+    RecentlyListened: {
         items: Item[];
     } | null;
 
-    isLoggedin: boolean;
 }
 
-function RecentlyListened({ RecentlyListenedData, isLoggedin }: RecentlyListenedProps) {
+function RecentlyListenedComponent({ RecentlyListened }: RecentlyListenedProps) {
+
+    const isLoggedin = useStore((state: any) => state.isLoggedin);
+    const isMockData = useStore((state: any) => state.isMockData);
 
     const [activePage, setActivePage] = useState(1);
-
     const skeletonCount = 3;
 
     function formatDate(inputDate: string) {
@@ -66,7 +68,7 @@ function RecentlyListened({ RecentlyListenedData, isLoggedin }: RecentlyListened
     }
 
     const pageSize = 5;
-    const pages = chunk(RecentlyListenedData?.items ?? [], pageSize);
+    const pages = chunk(RecentlyListened?.items ?? [], pageSize);
     const currentPageSongs = pages[activePage - 1] || [];
 
     return (
@@ -76,12 +78,12 @@ function RecentlyListened({ RecentlyListenedData, isLoggedin }: RecentlyListened
                 <span id="component-heading"> 🎧 Listening History </span>
 
                 <div className="history-count">
-                    Showing {RecentlyListenedData?.items?.length ?? 0} recent tracks.
+                    Showing {RecentlyListened?.items?.length ?? 0} recent tracks.
                 </div>
             </div>
 
             <div className="recent-grid">
-                {RecentlyListenedData?.items
+                {isLoggedin || isMockData
                     ? currentPageSongs.map((item, key) => (
                         <Song
                             key={key}
@@ -90,15 +92,17 @@ function RecentlyListened({ RecentlyListenedData, isLoggedin }: RecentlyListened
                             image={item.track.album.images[0]?.url}
                             artists={item.track.artists[0].name}
                             isLoggedIn={isLoggedin}
+                            isMockData={isMockData}
                         />
-                    ))
-                    :
+                    )) :
+
                     Array.from({ length: skeletonCount }).map((_, index) => (
                         <div key={index} className="recently-listened-skeleton">
                             <Skeleton id="skeleton-song" animate={false} width="5%" height={50} mr={20} />
                             <Skeleton id="skeleton-song" animate={false} width="100%" height={50} />
                         </div>
-                    ))}
+                    ))
+                }
             </div>
 
             <div className="pagination">
@@ -117,4 +121,4 @@ function RecentlyListened({ RecentlyListenedData, isLoggedin }: RecentlyListened
     )
 }
 
-export default RecentlyListened;
+export default RecentlyListenedComponent;
