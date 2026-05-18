@@ -9,10 +9,18 @@ The aim of this project is to use Spotify's public API service to get user's dat
 ---
 ## 📷 Screenshots - Everything is subject to change including this UI
 
-Project is in early stages of development - screenshots to come.
+<img width="1915" height="913" alt="image" src="https://github.com/user-attachments/assets/821fc8f0-af59-43fd-b22a-00d329396cb9" />
+<img width="1237" height="602" alt="image" src="https://github.com/user-attachments/assets/32eae582-39a7-456e-877d-546f405bdb70" />
+<img width="1217" height="538" alt="image" src="https://github.com/user-attachments/assets/6be02653-aa60-447b-84e1-15d1ba5698bc" />
+
 
 ---
 ## 🛠 Planned Features
+
+- More ideas to come during development.
+--
+
+## ✔️ Completed Features
 
 - Sign into an account with spotify.
 - Use the Spotify API to return user data about a persons listening history.
@@ -20,12 +28,6 @@ Project is in early stages of development - screenshots to come.
 - Top 5 most listened Songs this month.
 - Top 5 most listened Albums this month.
 - Top 5 genres this month.
-- More ideas to come during development.
---
-
-## ✔️ Completed Features
-
-- No completed Features yet aside from basic UI mockup and API route testing.
 
 ## 🛠 Technologies Used (so far)
 
@@ -36,7 +38,7 @@ Project is in early stages of development - screenshots to come.
 
 ## 📌 Status
 
-This project is a work in progress and will be fully deployed when a working version is completed.
+This project is live! More updates to come.
 
 ---
 
